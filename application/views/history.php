@@ -70,6 +70,7 @@ function showtype(obj)
 			?>
 			<div class="control-group">
 				<button onclick="window.print()" class="btn btn-primary">Print</button>
+				<button type="submit" name="download" class="btn btn-primary">Download</button>
 			</div>
 			<div class="control-group-inline">
 					<table class="table table-striped">

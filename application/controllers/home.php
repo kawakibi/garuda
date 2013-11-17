@@ -239,7 +239,35 @@ class Home extends CI_Controller {
 			$t 	= mktime(0,0,0,$t[1],$t[0],$t[2]);
 
 			$data['docs'] = $this->model_doc->get_history_document($t,$sc,$dn,$this->input->post('approvaltype'), $this->input->post('type'));
-			
+
+			if($this->input->post('download'))
+			{
+				$data_old[] = array(
+									1   => 'Register Number',
+									2   => 'Approval document number',
+									3   => 'Date',
+									4   => 'Sign Code',
+									5   => 'type',
+									6   => 'Remarks'
+								);
+				
+				// merge the header and data
+				foreach ($data['docs'] as $row)
+				{
+					$filtered = array(
+										1   => $row['register_num'],
+										2   => $row['approval_docnum'],
+										3   => date( "d-m-Y" ,$row['tanggal']),
+										4   => $row['signcode'],
+										5   => $row['type'],
+										6   => $row['remarks']
+									);
+					$data_old[] = $filtered;
+				}
+
+				array_to_csv($data_old, "History_".$sc."_".$this->input->post('type')."_".$this->input->post('approvaltype')."_".$t.".csv");
+				return;
+			}
 			$this->load->view('header',$data);
 			$this->load->view('history');
 			$this->load->view('footer');
