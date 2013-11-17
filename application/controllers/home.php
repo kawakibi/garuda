@@ -265,7 +265,7 @@ class Home extends CI_Controller {
 					$data_old[] = $filtered;
 				}
 
-				array_to_csv($data_old, "History_".$sc."_".$this->input->post('type')."_".$this->input->post('approvaltype')."_".$t.".csv");
+				array_to_csv($data_old, "History_".$sc."_".$this->input->post('type')."_".$this->input->post('approvaltype')."_".$data['tanggal'].".csv");
 				return;
 			}
 			$this->load->view('header',$data);
