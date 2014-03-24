@@ -122,7 +122,7 @@ class Admincp extends CI_Controller {
 		array(
 				'field'=>'telexnum', 
 				'label'=>'telexnum', 
-				'rules'=>'required|greater_than['.$data['current'].']'
+				'rules'=>'required'
 			)
 		);
 
@@ -160,7 +160,7 @@ class Admincp extends CI_Controller {
 		array(
 				'field'=>'approvalnum', 
 				'label'=>'approvalnum', 
-				'rules'=>'required|greater_than['.$data['current'].']'
+				'rules'=>'required'
 			)
 		);
 
@@ -198,7 +198,7 @@ class Admincp extends CI_Controller {
 		array(
 				'field'=>'regnum', 
 				'label'=>'regnum', 
-				'rules'=>'required|greater_than['.$data['current'].']'
+				'rules'=>'required'
 			)
 		);
 
